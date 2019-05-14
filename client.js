@@ -31,11 +31,40 @@ const employees = [
   }
 ];
 
+
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
 // This problem is massive! Break the problem down. Use the debugger.
 // What is the fewest lines of code I can write and test to get just a little closer?
+
+for( let i = 0; i < employees.length; i++ ){ //for loop to loop through the employee array
+  bonusCalc(employees[i]); //calling bonus function to run conditional everytime
+  
+}
+
+
+function bonusCalc(employee){
+    let bonusPercentage = 0;
+    if(employee.reviewRating <= 2){
+      console.log('no bonus');
+    }
+    else if(employee.reviewRating === 3){
+      console.log('add 4%');
+      bonusPercentage += 4;
+    }
+    else if(employee.reviewRating  === 4){
+      console.log('add 6%');
+      bonusPercentage += 6;
+    }
+    else if(employee.reviewRating === 5){
+      console.log('add 10%');
+      bonusPercentage += 10;
+    }
+    console.log(bonusPercentage);
+    
+  }
+
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
