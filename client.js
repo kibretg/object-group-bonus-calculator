@@ -51,20 +51,52 @@ function bonusCalc(employee){
     }
     else if(employee.reviewRating === 3){
       console.log('add 4%');
-      bonusPercentage += 4;
+      bonusPercentage += .04;
     }
     else if(employee.reviewRating  === 4){
       console.log('add 6%');
-      bonusPercentage += 6;
+      bonusPercentage += .06;
     }
     else if(employee.reviewRating === 5){
       console.log('add 10%');
-      bonusPercentage += 10;
+      bonusPercentage += .10;
     }
     console.log(bonusPercentage);
+
+
+  //check Tenure
+    if(employee.employeeNumber.length === 4){
+    console.log('gets 5% more');
+    bonusPercentage += .05;
+    console.log(bonusPercentage);
+  }
+  //check if annual salary is more than $65,000
+    if(employee.annualSalary >= 65000){
+      console.log('drop 1%');
+      bonusPercentage -= .01;
+      console.log(bonusPercentage);
+    }
+  //make sure bonus is no more than 13% and no less 0%
+    if(bonusPercentage >= .13){
+      bonusPercentage = .13;
+    }
+    else if(bonusPercentage < 0){
+      bonusPercentage = 0;
+    }
+  
+
+  //create new object
+  let empObject = 
+    {
+    name: employee.name,
+    bonusPercentage: bonusPercentage,
+    totalBonus: bonusPercentage * employee.annualSalary,
+    totalCompensation: totalBonus + employee.annualSalary
+    }
+  
+  
     
   }
-
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
